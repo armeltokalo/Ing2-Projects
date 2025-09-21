@@ -1,107 +1,101 @@
-# 📊 README — Automatisation des rapports de ventes (VBA)
+📊 README — Automatisation des rapports de ventes (VBA)
+✨ 1. Présentation
 
-<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px;">
-  <div style="background:#0ea5a4;color:white;padding:6px 10px;border-radius:8px;font-weight:700;">VBA • Excel</div>
-  <div style="background:#f59e0b;color:white;padding:6px 10px;border-radius:8px;font-weight:700;">Automatisation</div>
-  <div style="background:#6366f1;color:white;padding:6px 10px;border-radius:8px;font-weight:700;">Rapports hebdo & mensuel</div>
-</div>
+Ce projet fournit un outil VBA pour générer automatiquement des rapports de ventes hebdomadaires et mensuels à partir de données brutes dans Excel. L'objectif est de rendre la production des rapports fiable, répétable et facile à programmer (ex. via le Planificateur de tâches Windows).
 
----
+✅ Sorties : fichiers Excel/PDF récapitulatifs, tableaux KPI, graphiques, et un tableau de bord sommaire.
 
-## ✨ 1. Présentation
+🎯 2. Fonctionnalités principales
 
-Ce projet fournit un **outil VBA** pour générer automatiquement des **rapports de ventes hebdomadaires** et **mensuels** à partir de données brutes dans Excel. L'objectif est de rendre la production des rapports **fiable**, **répétable** et **facile à programmer** (ex. via le Planificateur de tâches Windows).
+Extraction et nettoyage automatique des données brutes.
 
-> ✅ Sorties : fichiers Excel/PDF récapitulatifs, tableaux KPI, graphiques, et un tableau de bord sommaire.
+Agrégations par période (semaine, mois), produit, région, commercial.
 
----
+Calculs KPI : CA total, CA moyen par client, marge, % de croissance vs période précédente.
 
-## 🎯 2. Fonctionnalités principales
+Génération automatique de graphiques (histogramme CA, courbe tendance).
 
-* Extraction et nettoyage automatique des données brutes.
-* Agrégations par période (semaine, mois), produit, région, commercial.
-* Calculs KPI : CA total, CA moyen par client, marge, % de croissance vs période précédente.
-* Génération automatique de graphiques (histogramme CA, courbe tendance).
-* Export des rapports en **PDF** et sauvegarde des fichiers Excel.
-* Planification automatique (exécution hebdomadaire / mensuelle).
-* Journal d'exécution (log) et gestion d'erreurs basique.
+Export des rapports en PDF et sauvegarde des fichiers Excel.
 
----
+Planification automatique (exécution hebdomadaire / mensuelle).
 
-## 🧭 3. Architecture du projet
+Journal d'exécution (log) et gestion d'erreurs basique.
 
-**Fichiers**
+🧭 3. Architecture du projet
 
-* `Data_Raw.xlsx` — feuille avec les données brutes (format défini ci-dessous).
-* `Reports_Template.xlsm` — classeur principal contenant les macros VBA et les modèles de rapport.
-* `Output/` — dossier de sortie pour rapports générés (Excel et PDF).
+Fichiers
 
-**Onglets requis dans `Reports_Template.xlsm`**
+Data_Raw.xlsx — feuille avec les données brutes (format défini ci-dessous).
 
-1. `Config` — paramètres (chemins, période par défaut, format date, destinataires mail).
-2. `RawData` — import (ou lien) vers `Data_Raw.xlsx` si nécessaire.
-3. `KPI` — calculs intermédiaires et indicateurs.
-4. `Report_Weekly` — template rapport hebdo.
-5. `Report_Monthly` — template rapport mensuel.
+Reports_Template.xlsm — classeur principal contenant les macros VBA et les modèles de rapport.
 
----
+Output/ — dossier de sortie pour rapports générés (Excel et PDF).
 
-## 📥 4. Format des données brutes (colones exigées)
+Onglets requis dans Reports_Template.xlsm
 
-| Colonne      |      Type | Description                   |
-| ------------ | --------: | ----------------------------- |
-| Date         |      Date | Date de la vente (jj/mm/aaaa) |
-| OrderID      |     Texte | Identifiant commande          |
-| Client       |     Texte | Nom du client                 |
-| Produit      |     Texte | Désignation du produit        |
-| Quantité     | Numérique | Quantité vendue               |
-| PrixUnitaire | Numérique | Prix unitaire HT              |
-| TVA          | Numérique | Taux de TVA (%)               |
-| Cout         | Numérique | Coût unitaire                 |
-| Région       |     Texte | Région / zone commerciale     |
+Config — paramètres (chemins, période par défaut, format date, destinataires mail).
 
-> Astuce : conserver la première ligne pour les en-têtes et ne pas laisser de lignes vides au milieu des données.
+RawData — import (ou lien) vers Data_Raw.xlsx si nécessaire.
 
----
+KPI — calculs intermédiaires et indicateurs.
 
-## 🛠️ 5. Installation et configuration rapide
+Report_Weekly — template rapport hebdo.
 
-1. Placez `Reports_Template.xlsm` et `Data_Raw.xlsx` dans le même dossier projet.
-2. Ouvrez `Reports_Template.xlsm` et activez les macros (ruban Excel > Options > Centre de gestion de la confidentialité > Activer les macros).
-3. Allez dans l'onglet `Config` et renseignez :
+Report_Monthly — template rapport mensuel.
 
-   * `PathOutput` : dossier `./Output`
-   * `PeriodDefault` : `Weekly` ou `Monthly`
-   * `DateFormat` : `dd/mm/yyyy`
-   * `EmailEnabled` : `True/False` (si envoi mail activé)
-4. Exécutez la macro `Main_GenerateReport` (ALT+F8) pour lancer une génération manuelle.
+📥 4. Format des données brutes (colones exigées)
+Colonne	Type	Description
+Date	Date	Date de la vente (jj/mm/aaaa)
+OrderID	Texte	Identifiant commande
+Client	Texte	Nom du client
+Produit	Texte	Désignation du produit
+Quantité	Numérique	Quantité vendue
+PrixUnitaire	Numérique	Prix unitaire HT
+TVA	Numérique	Taux de TVA (%)
+Cout	Numérique	Coût unitaire
+Région	Texte	Région / zone commerciale
 
----
+Astuce : conserver la première ligne pour les en-têtes et ne pas laisser de lignes vides au milieu des données.
 
-## ▶️ 6. Utilisation — commandes macros (principales)
+🛠️ 5. Installation et configuration rapide
 
-* `Main_GenerateReport(period As String)`
+Placez Reports_Template.xlsm et Data_Raw.xlsx dans le même dossier projet.
 
-  * `period = "Weekly"` ou `"Monthly"`.
-  * Flux : Nettoyage → Agrégation → Tableaux KPI → Remplissage template → Export PDF → Log.
+Ouvrez Reports_Template.xlsm et activez les macros (ruban Excel > Options > Centre de gestion de la confidentialité > Activer les macros).
 
-* `Import_RawData()` : importe et valide le fichier `Data_Raw.xlsx`.
+Allez dans l'onglet Config et renseignez :
 
-* `Compute_KPIs(startDate As Date, endDate As Date)` : calcule les indicateurs pour la période.
+PathOutput : dossier ./Output
 
-* `Fill_ReportTemplate(period As String)` : remplit `Report_Weekly` ou `Report_Monthly`.
+PeriodDefault : Weekly ou Monthly
 
-* `Export_ReportAsPDF(reportSheetName As String, destPath As String)` : export PDF.
+DateFormat : dd/mm/yyyy
 
-* `Schedule_CreateTask(scheduleType As String)` : (optionnel) crée une tâche Windows via script si vous souhaitez automatiser.
+EmailEnabled : True/False (si envoi mail activé)
 
-> Chaque macro inclut des commentaires détaillés pour faciliter la maintenance.
+Exécutez la macro Main_GenerateReport (ALT+F8) pour lancer une génération manuelle.
 
----
+▶️ 6. Utilisation — commandes macros (principales)
 
-## 🧩 7. Exemple de snippet VBA (extrait rapide)
+Main_GenerateReport(period As String)
 
-```vb
+period = "Weekly" ou "Monthly".
+
+Flux : Nettoyage → Agrégation → Tableaux KPI → Remplissage template → Export PDF → Log.
+
+Import_RawData() : importe et valide le fichier Data_Raw.xlsx.
+
+Compute_KPIs(startDate As Date, endDate As Date) : calcule les indicateurs pour la période.
+
+Fill_ReportTemplate(period As String) : remplit Report_Weekly ou Report_Monthly.
+
+Export_ReportAsPDF(reportSheetName As String, destPath As String) : export PDF.
+
+Schedule_CreateTask(scheduleType As String) : (optionnel) crée une tâche Windows via script si vous souhaitez automatiser.
+
+Chaque macro inclut des commentaires détaillés pour faciliter la maintenance.
+
+🧩 7. Exemple de snippet VBA (extrait rapide)
 ' Extrait : boucle d'agrégation par produit
 Sub Compute_KPIs(startDate As Date, endDate As Date)
   Dim wsData As Worksheet: Set wsData = ThisWorkbook.Sheets("RawData")
@@ -119,81 +113,72 @@ Sub Compute_KPIs(startDate As Date, endDate As Date)
   Next i
   ' Ecrire les résultats dans l'onglet KPI
 End Sub
-```
+📈 8. Modèles graphiques & design recommandé
 
----
+Police : Calibri / 11 pour les données, 14-18 pour titres.
 
-## 📈 8. Modèles graphiques & design recommandé
+Palette couleurs suggérée :
 
-* Police : Calibri / 11 pour les données, 14-18 pour titres.
-* Palette couleurs suggérée :
+Accent principal : #0ea5a4 (bleu-vert)
 
-  * Accent principal : `#0ea5a4` (bleu-vert)
-  * Accent secondaire : `#6366f1` (violet)
-  * Accent tertiaire : `#f59e0b` (orange)
-* Utiliser des cartes KPI (cellules formatées) en haut du rapport : CA total, Variation %, Top 3 produits, Top 3 commerciaux.
+Accent secondaire : #6366f1 (violet)
 
----
+Accent tertiaire : #f59e0b (orange)
 
-## 🧪 9. Tests et validation
+Utiliser des cartes KPI (cellules formatées) en haut du rapport : CA total, Variation %, Top 3 produits, Top 3 commerciaux.
 
-1. Tester avec un petit échantillon (simuler deux semaines/mois) et vérifier :
+🧪 9. Tests et validation
 
-   * Totaux correspondants au tableau source
-   * Graphiques reflètent les tendances
-2. Activer le log détaillé (`Config!LogLevel = "DEBUG"`) pour identifier les erreurs.
+Tester avec un petit échantillon (simuler deux semaines/mois) et vérifier :
 
----
+Totaux correspondants au tableau source
 
-## 🔁 10. Planification (Windows Task Scheduler)
+Graphiques reflètent les tendances
 
-* Créer un script `.vbs` simple qui ouvre le classeur et exécute `Main_GenerateReport "Weekly"`.
-* Planifier la tâche : Hebdomadaire (ex. chaque lundi 06:00) ou Mensuelle (1er du mois 06:00).
+Activer le log détaillé (Config!LogLevel = "DEBUG") pour identifier les erreurs.
 
-Exemple `.vbs` :
+🔁 10. Planification (Windows Task Scheduler)
 
-```vbscript
+Créer un script .vbs simple qui ouvre le classeur et exécute Main_GenerateReport "Weekly".
+
+Planifier la tâche : Hebdomadaire (ex. chaque lundi 06:00) ou Mensuelle (1er du mois 06:00).
+
+Exemple .vbs :
+
 Set xl = CreateObject("Excel.Application")
 xl.Visible = False
 Set wb = xl.Workbooks.Open("C:\\Path\\To\\Reports_Template.xlsm")
 xl.Run "Main_GenerateReport", "Weekly"
 wb.Close True
 xl.Quit
-```
+🛡️ 11. Gestion des erreurs & journalisation
 
----
+Toutes les étapes critiques loggent dans Output/logs.txt avec timestamp.
 
-## 🛡️ 11. Gestion des erreurs & journalisation
+En cas d'erreur, la macro envoie (si activé) un email d'alerte contenant l'extrait d'erreur.
 
-* Toutes les étapes critiques loggent dans `Output/logs.txt` avec timestamp.
-* En cas d'erreur, la macro envoie (si activé) un email d'alerte contenant l'extrait d'erreur.
+🧾 12. Checklist avant mise en production
 
----
 
-## 🧾 12. Checklist avant mise en production
 
-* [ ] Valider le format des données brutes
-* [ ] Sauvegarder un backup du classeur template
-* [ ] Tester scheduling sur environnement de test
-* [ ] Vérifier permissions des dossiers d'output
-* [ ] Documenter les étapes d'urgence (rollback)
 
----
+📎 13. Ressources & bonnes pratiques
 
-## 📎 13. Ressources & bonnes pratiques
+Toujours conserver l'original Data_Raw.xlsx et ne jamais l'écraser.
 
-* Toujours conserver l'original `Data_Raw.xlsx` et ne jamais l'écraser.
-* Versionner le classeur `Reports_Template.xlsm` (ex. `v1.0`, `v1.1`).
-* Ajouter des tests unitaires simples (ex. macros de vérification de cohérence).
+Versionner le classeur Reports_Template.xlsm (ex. v1.0, v1.1).
 
----
+Ajouter des tests unitaires simples (ex. macros de vérification de cohérence).
 
-## 💡 14. Personnalisation (exemples d'améliorations)
+💡 14. Personnalisation (exemples d'améliorations)
 
-* Envoi automatique par email des rapports (Outlook automation).
-* Dashboard Power BI à partir des fichiers exportés.
-* Connecteur direct vers base de données (SQL) pour éviter import manuel.
+Envoi automatique par email des rapports (Outlook automation).
 
+Dashboard Power BI à partir des fichiers exportés.
+
+Connecteur direct vers base de données (SQL) pour éviter import manuel.
+
+© 2025 — Automatisation Rapports de Ventes • Conçu pour être simple, lisible et facilement maintenable.
 ---
 
 © 2025 — Automatisation Rapports de Ventes • Conçu pour être simple, lisible et facilement maintenable.
