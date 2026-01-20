@@ -11,10 +11,10 @@ L’objectif principal est d’aider les entreprises à mieux comprendre le comp
 ## 🎯 Objectifs du projet
 
 * Segmenter les clients selon leur comportement d’achat
-* Identifier les clients à forte valeur et ceux à risque de churn
-* Optimiser les campagnes marketing en réduisant les coûts inutiles
-* Améliorer la fidélisation et la rentabilité client
-* Appuyer la prise de décision stratégique à l’aide de données
+* Identifier les clients à **forte valeur** et ceux à **risque de churn**
+* Optimiser les campagnes marketing en **réduisant les coûts inutiles**
+* Améliorer la **fidélisation** et la **rentabilité client**
+* Appuyer la **prise de décision stratégique** à l’aide de données
 
 ---
 
@@ -28,13 +28,13 @@ La segmentation RFM repose sur trois indicateurs clés :
 * **Frequency (F)** : fréquence des achats
 * **Monetary (M)** : montant total dépensé
 
-Ces variables sont normalisées puis utilisées pour créer des segments clients homogènes.
+Ces variables sont **normalisées** puis utilisées pour créer des segments clients homogènes.
 
 ---
 
 ### 2️⃣ Segmentation par Machine Learning
 
-* Utilisation d’algorithmes de **clustering** ( K-Means)
+* Utilisation d’algorithmes de **clustering** (**K-Means**)
 * Détermination du nombre optimal de clusters via la **méthode du coude (Elbow Method)**
 * Analyse et interprétation des segments obtenus
 
@@ -43,8 +43,8 @@ Ces variables sont normalisées puis utilisées pour créer des segments clients
 ### 3️⃣ Exploitation Business
 
 * Association de chaque segment à une **stratégie marketing spécifique**
-* Réduction des dépenses sur les clients à faible potentiel
-* Renforcement des actions de fidélisation sur les clients à forte valeur
+* **Réduction des dépenses** sur les clients à faible potentiel
+* **Renforcement des actions de fidélisation** sur les clients à forte valeur
 
 ---
 
@@ -61,9 +61,9 @@ Ces variables sont normalisées puis utilisées pour créer des segments clients
 ## 📈 Résultats attendus
 
 * Segmentation claire et exploitable des clients
-* Amélioration du taux de rétention
-* Optimisation du budget marketing
-* Meilleure compréhension du cycle de vie client
+* **Amélioration du taux de rétention**
+* **Optimisation du budget marketing**
+* Meilleure compréhension du **cycle de vie client**
 
 ---
 
@@ -85,10 +85,10 @@ Ces variables sont normalisées puis utilisées pour créer des segments clients
 
 ## 🚀 Perspectives d’amélioration
 
-* Intégration de modèles prédictifs de churn
-* Ajout de données comportementales ou démographiques
-* Automatisation des recommandations marketing
-* Déploiement via une application web ou dashboard
+* Intégration de **modèles prédictifs de churn**
+* Ajout de données **comportementales ou démographiques**
+* **Automatisation des recommandations marketing**
+* **Déploiement** via une application web ou dashboard
 
 ---
 
@@ -105,4 +105,3 @@ Pour toute question ou amélioration du projet, n’hésitez pas à contribuer o
 ---
 
 ✨ *Ce projet illustre l’impact concret de la data et du Machine Learning dans l’optimisation des décisions marketing.*
-
