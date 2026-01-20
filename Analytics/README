@@ -65,21 +65,6 @@ Ces variables sont **normalisées** puis utilisées pour créer des segments cli
 * **Optimisation du budget marketing**
 * Meilleure compréhension du **cycle de vie client**
 
----
-
-## 📂 Structure du projet
-
-```
-├── data/
-│   └── dataset_clients.csv
-├── notebooks/
-│   └── rfm_segmentation.ipynb
-├── models/
-│   └── clustering_model.pkl
-├── visuals/
-│   └── rfm_clusters.png
-├── README.md
-```
 
 ---
 
